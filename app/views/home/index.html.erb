@@ -1,0 +1,6 @@
+<%client = ApiAiRuby::Client.new(
+    :client_access_token => 'dfdeb923f03244dd9722851c20aca033'
+)%>
+<%response = client.text_request 'hello!'
+%>
+<%=response%>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location_from: MyString
+  location_to: MyString
+  boarding_time: MyString
+  departure_time: MyString
+  gate_number: 1
+
+two:
+  location_from: MyString
+  location_to: MyString
+  boarding_time: MyString
+  departure_time: MyString
+  gate_number: 1
