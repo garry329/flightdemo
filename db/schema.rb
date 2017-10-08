@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171007095547) do
+ActiveRecord::Schema.define(version: 20171007195129) do
+
+  create_table "booked_flights", force: true do |t|
+    t.integer  "flight_id"
+    t.string   "session_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "booked_flights", ["flight_id"], name: "index_booked_flights_on_flight_id"
 
   create_table "flights", force: true do |t|
     t.string   "location_from"
@@ -19,6 +28,15 @@ ActiveRecord::Schema.define(version: 20171007095547) do
     t.string   "boarding_time"
     t.string   "departure_time"
     t.integer  "gate_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "price"
+    t.string   "duration"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "session_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
