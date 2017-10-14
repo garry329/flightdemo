@@ -11,6 +11,9 @@ end
 
 def create
 	action = params[:action1].to_s
+	puts "<<<<<<<"
+	puts action
+	puts ">>>>>>"
 	if action.eql? "signin"
 
 		email = params[:email]
