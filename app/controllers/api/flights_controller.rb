@@ -11,7 +11,7 @@ end
 
 def create
 	action = params[:action1].to_s
-	if action == "signin"
+	if action.eql? "signin"
 
 		email = params[:email]
 		password = params[:password]
@@ -25,7 +25,7 @@ def create
 		else
 			render json: {status: 'FALIURE',displayText:'wrongpassword', message:'Wrong Password'},status: :ok
 		end
-	elsif action == "signup"
+	elsif action.eql? "signup"
 		email = params[:email]
 		password = params[:password]
 		phone = params[:phone]
@@ -45,7 +45,7 @@ def create
 		else
 			render json: {status: 'FALIURE',displayText:'userExists', message:'User Already Exists'},status: :ok
 		end
-	elsif action == "certi"
+	elsif action.eql? "certi"
 		session_id = params[:session_id]	
 		email = params[:email]
 		user = User.where(email: email).first
