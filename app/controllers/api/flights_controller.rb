@@ -45,6 +45,21 @@ def create
 		else
 			render json: {status: 'FALIURE',displayText:'userExists', message:'User Already Exists'},status: :ok
 		end
+	elsif action == "certi"
+		session_id = params[:session_id]	
+		email = params[:email]
+		user = User.where(email: email).first
+		hex = params[:hex]
+		id = params[:_id]
+		temp = "https://kulzmislja.localtunnel.me/"+hex+"?"+id
+		 require 'unirest'
+		answer = Unirest.post temp
+
+		if user.session_id == session_id
+			render json: {status: 'SUCCESS',displayText:answer, message:'SuccessFully Signed Up',id:user.session_id,name:user.name},status: :ok
+		else
+			render json: {status: 'FALIURE',displayText:'hello', message:'Your Session Expired',id:user.session_id},status: :ok
+		end
 
 	else
 		render json: {status: 'FALIURE',displayText:'hello', message:'Please Specify the action'},status: :ok
